@@ -1,0 +1,412 @@
+/**
+ * 8-bit Retro Falling Blocks Game Styles
+ * Pure CSS implementation to avoid SASS deprecation warnings
+ */
+
+/* Import retro 8-bit font */
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
+
+/* Simple animations */
+@keyframes pixel-glow {
+	0%, 100% {
+		box-shadow: 0 0 10px #66ff88;
+		border-color: #66ff88;
+	}
+	50% {
+		box-shadow: 0 0 15px #88ffaa;
+		border-color: #88ffaa;
+	}
+}
+
+@keyframes retro-background {
+	from {
+		background-position: 0% 0%;
+	}
+	to {
+		background-position: 100% 100%;
+	}
+}
+
+@keyframes stars {
+	from {
+		transform: translateY(0px);
+	}
+	to {
+		transform: translateY(-100px);
+	}
+}
+
+.wp-block-eight-bit-blocks-falling-blocks {
+	margin: 20px 0;
+	display: flex;
+	justify-content: center;
+	position: relative;
+	padding: 40px 20px;
+	font-family: 'Press Start 2P', monospace;
+	font-size: 8px;
+	line-height: 1.6;
+	/* Block-contained retro background */
+	background: 
+		radial-gradient(circle at 20% 30%, #1a0066 0%, #000033 30%, #001122 60%, #000000 100%),
+		linear-gradient(45deg, #000000 0%, #1a0033 25%, #0d001a 50%, #000066 75%, #000000 100%);
+	background-size: 400% 400%, 200% 200%;
+	animation: retro-background 20s linear infinite;
+	min-height: 70vh;
+	border-radius: 8px;
+}
+
+/* Retro stars pattern contained in block */
+.wp-block-eight-bit-blocks-falling-blocks::before {
+	content: '';
+	position: absolute;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	z-index: 0;
+	pointer-events: none;
+	/* Create a starfield pattern with CSS */
+	background-image: 
+		radial-gradient(1px 1px at 20px 30px, #66ff88, transparent),
+		radial-gradient(1px 1px at 40px 70px, #88ffaa, transparent),
+		radial-gradient(2px 2px at 90px 40px, #aaffcc, transparent),
+		radial-gradient(1px 1px at 130px 80px, #66ff88, transparent),
+		radial-gradient(2px 2px at 160px 30px, #ccffdd, transparent),
+		radial-gradient(1px 1px at 200px 90px, #88ffaa, transparent),
+		radial-gradient(1px 1px at 230px 20px, #66ff88, transparent),
+		radial-gradient(2px 2px at 270px 60px, #aaffcc, transparent),
+		radial-gradient(1px 1px at 300px 10px, #88ffaa, transparent),
+		radial-gradient(1px 1px at 350px 50px, #66ff88, transparent);
+	background-repeat: repeat;
+	background-size: 400px 120px;
+	animation: stars 25s linear infinite;
+	opacity: 0.4;
+	border-radius: 8px;
+}
+
+.falling-blocks-container {
+	display: inline-block;
+	position: relative;
+	z-index: 1;
+	background: #0a0a0a;
+	padding: 20px;
+	border: 4px solid #66ff88;
+	box-shadow: 0 0 20px rgba(102, 255, 136, 0.4), inset 0 0 20px rgba(0, 0, 0, 0.8), 8px 8px 0px rgba(102, 255, 136, 0.3);
+	animation: pixel-glow 4s ease-in-out infinite;
+}
+
+.falling-blocks-container::before {
+	content: '';
+	position: absolute;
+	top: -8px;
+	left: -8px;
+	right: -8px;
+	bottom: -8px;
+	background: linear-gradient(45deg, #66ff88 0%, #88ffaa 25%, #aaffcc 50%, #66ff88 100%);
+	background-size: 16px 16px;
+	z-index: -1;
+}
+
+.falling-blocks-area {
+	display: flex;
+	gap: 20px;
+	align-items: flex-start;
+}
+
+.falling-blocks-canvas {
+	border: 3px solid #333333;
+	background: #0a0a0a;
+	display: block;
+	box-shadow: 0 0 10px rgba(102, 255, 136, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.8), 4px 4px 0px rgba(0, 0, 0, 0.5);
+	image-rendering: pixelated;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: crisp-edges;
+	filter: contrast(1.1) brightness(1.1);
+}
+
+.falling-blocks-sidebar {
+	display: flex;
+	flex-direction: column;
+	gap: 16px;
+	min-width: 140px;
+}
+
+.falling-blocks-score-panel {
+	background: #1a1a1a;
+	border: 3px solid #66ff88;
+	padding: 16px;
+	box-shadow: 0 0 10px rgba(102, 255, 136, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.5), 4px 4px 0px rgba(0, 0, 0, 0.8);
+	color: #ffffff;
+	text-transform: uppercase;
+}
+
+.score-item {
+	display: flex;
+	justify-content: space-between;
+	margin-bottom: 10px;
+	font-size: 6px;
+	padding: 4px 0;
+	border-bottom: 1px solid rgba(102, 255, 136, 0.3);
+	transition: all 0.2s ease;
+}
+
+.score-item:last-child {
+	margin-bottom: 0;
+	border-bottom: none;
+}
+
+.score-item:hover {
+	background: rgba(102, 255, 136, 0.1);
+	padding: 4px 6px;
+	margin: 2px -6px 8px -6px;
+	border: 1px solid #66ff88;
+}
+
+.score-item .label {
+	color: #66ff88;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
+}
+
+.score-item .value {
+	color: #ffff00;
+	font-size: 7px;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
+	filter: drop-shadow(0 0 2px currentColor);
+}
+
+.falling-blocks-next-piece {
+	background: #1a1a1a;
+	border: 3px solid #88ffaa;
+	padding: 16px;
+	text-align: center;
+	box-shadow: 0 0 10px rgba(136, 255, 170, 0.3), inset 0 0 10px rgba(0, 0, 0, 0.5), 4px 4px 0px rgba(0, 0, 0, 0.8);
+	color: #ffffff;
+}
+
+.falling-blocks-next-piece .label {
+	font-size: 6px;
+	color: #88ffaa;
+	margin-bottom: 10px;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+.next-piece-canvas {
+	border: 2px solid #333333;
+	background: #0a0a0a;
+	box-shadow: 0 0 5px rgba(136, 255, 170, 0.2), inset 0 0 5px rgba(0, 0, 0, 0.8), 2px 2px 0px rgba(0, 0, 0, 0.5);
+	image-rendering: pixelated;
+	image-rendering: -moz-crisp-edges;
+	image-rendering: crisp-edges;
+}
+
+.falling-blocks-controls {
+	margin-top: 20px;
+	text-align: center;
+	background: rgba(0, 0, 0, 0.8);
+	padding: 16px;
+	border: 2px solid #333333;
+	box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.8);
+}
+
+.control-row {
+	margin-bottom: 8px;
+	display: flex;
+	justify-content: center;
+	gap: 6px;
+}
+
+.control-row:last-child {
+	margin-bottom: 0;
+}
+
+.falling-blocks-btn {
+	background: #66ff88;
+	border: 2px solid #44dd66;
+	color: #0a0a0a;
+	padding: 8px 12px;
+	text-align: center;
+	display: inline-block;
+	font-size: 6px;
+	cursor: pointer;
+	transition: all 0.1s ease;
+	min-width: 40px;
+	box-shadow: 2px 2px 0px #33bb55, 0 0 5px rgba(102, 255, 136, 0.3);
+	text-transform: uppercase;
+	letter-spacing: 1px;
+	font-family: 'Press Start 2P', monospace;
+}
+
+.falling-blocks-btn:hover {
+	background: #88ffaa;
+	transform: translate(-1px, -1px);
+	box-shadow: 3px 3px 0px #33bb55, 0 0 10px rgba(102, 255, 136, 0.5);
+}
+
+.falling-blocks-btn:active {
+	background: #55ee77;
+	transform: translate(1px, 1px);
+	box-shadow: 1px 1px 0px #33bb55, 0 0 3px rgba(102, 255, 136, 0.3);
+}
+
+.falling-blocks-btn-wide {
+	min-width: 80px;
+	background: #ffff00;
+	border-color: #cccc00;
+	color: #0a0a0a;
+	box-shadow: 2px 2px 0px #999900, 0 0 5px rgba(255, 255, 0, 0.3);
+}
+
+.falling-blocks-btn-wide:hover {
+	background: #ffff1a;
+	box-shadow: 3px 3px 0px #999900, 0 0 10px rgba(255, 255, 0, 0.5);
+}
+
+.falling-blocks-btn-wide:active {
+	background: #e6e600;
+	box-shadow: 1px 1px 0px #999900, 0 0 3px rgba(255, 255, 0, 0.3);
+}
+
+.falling-blocks-btn-restart {
+	background: #88ffaa;
+	border-color: #66dd88;
+	color: #0a0a0a;
+	box-shadow: 2px 2px 0px #55cc77, 0 0 5px rgba(136, 255, 170, 0.3);
+}
+
+.falling-blocks-btn-restart:hover {
+	background: #aaffcc;
+	box-shadow: 3px 3px 0px #55cc77, 0 0 15px rgba(136, 255, 170, 0.6);
+}
+
+.falling-blocks-btn-restart:active {
+	background: #77ee99;
+	box-shadow: 1px 1px 0px #55cc77, 0 0 5px rgba(136, 255, 170, 0.3);
+}
+
+.falling-blocks-over {
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	background: rgba(0, 0, 0, 0.95);
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	border: 2px solid #88ffaa;
+}
+
+.game-over-content {
+	background: #1a1a1a;
+	padding: 30px;
+	text-align: center;
+	border: 4px solid #88ffaa;
+	box-shadow: 0 0 20px rgba(136, 255, 170, 0.5), inset 0 0 20px rgba(0, 0, 0, 0.8), 8px 8px 0px rgba(136, 255, 170, 0.3);
+	color: #ffffff;
+}
+
+.game-over-content h3 {
+	margin: 0 0 16px 0;
+	color: #88ffaa;
+	font-size: 10px;
+	text-shadow: 2px 2px 0px rgba(0, 0, 0, 0.8);
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	font-family: 'Press Start 2P', monospace;
+}
+
+.game-over-content p {
+	margin: 0 0 20px 0;
+	color: #66ff88;
+	font-size: 7px;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
+	text-transform: uppercase;
+}
+
+#final-score {
+	color: #ffff00;
+	font-size: 8px;
+	text-shadow: 1px 1px 0px rgba(0, 0, 0, 0.8);
+	filter: drop-shadow(0 0 2px currentColor);
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+	.wp-block-eight-bit-blocks-falling-blocks {
+		padding: 15px 10px;
+		min-height: 60vh;
+		font-size: 6px;
+	}
+	
+	.falling-blocks-container {
+		padding: 15px;
+	}
+	
+	.falling-blocks-area {
+		flex-direction: column;
+		align-items: center;
+		gap: 12px;
+	}
+
+	.falling-blocks-sidebar {
+		flex-direction: row;
+		justify-content: center;
+		min-width: auto;
+		gap: 12px;
+	}
+
+	.falling-blocks-score-panel,
+	.falling-blocks-next-piece {
+		flex: 1;
+		max-width: 140px;
+		padding: 12px;
+	}
+	
+	.score-item {
+		font-size: 5px;
+	}
+	
+	.score-item .value {
+		font-size: 6px;
+	}
+	
+	.falling-blocks-next-piece .label {
+		font-size: 5px;
+	}
+
+	.falling-blocks-controls {
+		margin-top: 12px;
+		padding: 12px;
+	}
+
+	.falling-blocks-btn {
+		padding: 6px 10px;
+		font-size: 5px;
+		min-width: 35px;
+		letter-spacing: 0.5px;
+	}
+
+	.falling-blocks-btn-wide {
+		min-width: 70px;
+	}
+	
+	.game-over-content {
+		padding: 20px;
+		max-width: 90vw;
+	}
+	
+	.game-over-content h3 {
+		font-size: 8px;
+		letter-spacing: 1px;
+	}
+	
+	.game-over-content p {
+		font-size: 6px;
+	}
+	
+	#final-score {
+		font-size: 7px;
+	}
+}
