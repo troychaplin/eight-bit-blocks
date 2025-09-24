@@ -1,0 +1,23 @@
+{
+	"name": "troychaplin/multi-block-starter",
+	"description": "A starter configuration for creating a WordPress plugin with multiple blocks.",
+	"type": "wordpress-plugin",
+	"license": "GPL-2.0-or-later",
+	"autoload": {
+		"classmap": [
+			"classes/"
+		]
+	},
+	"require-dev": {
+		"wp-coding-standards/wpcs": "^3.2"
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
+	},
+	"scripts": {
+		"format": "phpcbf",
+		"lint": "phpcs"
+	}
+}
