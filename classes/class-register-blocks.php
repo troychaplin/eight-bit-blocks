@@ -34,6 +34,7 @@ class Register_Blocks extends Plugin_Module {
 	 */
 	public function init() {
 		add_action( 'init', array( $this, 'register_blocks' ) );
+        add_filter( 'block_categories_all', array( $this, 'add_order_block_category' ), 10, 2 );
 	}
 
 	/**
@@ -61,4 +62,24 @@ class Register_Blocks extends Plugin_Module {
 			}
 		}
 	}
+
+    public function add_order_block_category( $categories ) {
+        $custom_category = array(
+            'slug'     => 'eight-bit-blocks',
+            'title'    => __( 'Eight Bit Blocks', 'eight-bit-blocks' ),
+            'icon'     => null,
+            'position' => 1,
+        );
+
+        // Extract position from the custom category array.
+        $position = $custom_category['position'];
+
+        // Remove position from the custom category array.
+        unset( $custom_category['position'] );
+
+        // Insert the custom category at the desired position.
+        array_splice( $categories, $position, 0, array( $custom_category ) );
+
+        return $categories;
+    }
 }

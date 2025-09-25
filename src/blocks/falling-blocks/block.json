@@ -5,7 +5,7 @@
 	"name": "eight-bit-blocks/falling-blocks",
 	"version": "0.1.0",
 	"title": "Falling Blocks Game",
-	"category": "widgets",
+	"category": "eight-bit-blocks",
 	"icon": "games",
 	"description": "A fully functional falling blocks game block",
 	"example": {

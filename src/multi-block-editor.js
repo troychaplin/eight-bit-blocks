@@ -5,4 +5,5 @@
  *
  */
 
-import './helpers/block-styles';
+// import './helpers/block-styles';
+alert('editor');
