@@ -1,0 +1,41 @@
+
+  {
+	"$schema": "https://schemas.wp.org/trunk/block.json",
+	"apiVersion": 3,
+	"name": "eight-bit-blocks/falling-blocks",
+	"version": "0.1.0",
+	"title": "Falling Blocks Game",
+	"category": "eight-bit-blocks",
+	"icon": "games",
+	"description": "A fully functional falling blocks game block",
+	"example": {
+		"attributes": {
+			"gameWidth": 300,
+			"gameHeight": 600
+		}
+	},
+	"attributes": {
+		"gameWidth": {
+			"type": "number",
+			"default": 300
+		},
+		"gameHeight": {
+			"type": "number",
+			"default": 600
+		},
+		"showControls": {
+			"type": "boolean",
+			"default": false
+		}
+	},
+	"supports": {
+		"html": false,
+		"align": ["wide", "left", "center", "right"]
+	},
+	"textdomain": "falling-blocks-block-wp",
+	"editorScript": "file:./index.js",
+	"editorStyle": "file:./index.css",
+	"style": "file:./style-index.css",
+	"viewScript": "file:./view.js"
+}
+  
