@@ -10,23 +10,9 @@ export default function Edit({ attributes, setAttributes }) {
 	return (
 		<>
 			<InspectorControls>
-				<PanelBody title={__('Game Settings', 'falling-blocks-block-wp')}>
-					<RangeControl
-						label={__('Game Width', 'falling-blocks-block-wp')}
-						value={gameWidth}
-						onChange={(value) => setAttributes({ gameWidth: value })}
-						min={200}
-						max={500}
-					/>
-					<RangeControl
-						label={__('Game Height', 'falling-blocks-block-wp')}
-						value={gameHeight}
-						onChange={(value) => setAttributes({ gameHeight: value })}
-						min={300}
-						max={800}
-					/>
+				<PanelBody title={__('Game Settings', 'eight-bit-blocks')}>
 					<ToggleControl
-						label={__('Show Control Buttons', 'falling-blocks-block-wp')}
+						label={__('Show Control Buttons', 'eight-bit-blocks')}
 						checked={showControls}
 						onChange={(value) => setAttributes({ showControls: value })}
 					/>
@@ -47,12 +33,12 @@ export default function Edit({ attributes, setAttributes }) {
 				}}>
 					<div style={{ textAlign: 'center' }}>
 						<div style={{ fontSize: '24px', marginBottom: '10px' }}>🎮</div>
-						<div>{__('Falling Blocks Game', 'falling-blocks-block-wp')}</div>
+						<div>{__('Falling Blocks Game', 'eight-bit-blocks')}</div>
 						<div style={{ fontSize: '12px', opacity: 0.7, marginTop: '5px' }}>
 							{gameWidth} × {gameHeight}px
 						</div>
 						<div style={{ fontSize: '10px', opacity: 0.5, marginTop: '10px' }}>
-							{__('Game will be interactive on the front end', 'falling-blocks-block-wp')}
+							{__('Game will be interactive on the front end', 'eight-bit-blocks')}
 						</div>
 					</div>
 				</div>

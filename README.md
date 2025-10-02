@@ -1,174 +1,92 @@
-# Multi Block Starter Plugin
+# Eight Bit Blocks 🎮
 
-Supercharge your WordPress block development with this modern, production-ready starter plugin. Built for developers who need a robust foundation for creating multiple block types, this plugin combines the power of static, dynamic, and interactive blocks in one efficient setup. Say goodbye to juggling multiple plugins and hello to a streamlined development workflow with optimized asset loading, modern build tools, and best practices baked in.
+**Bring classic arcade games to your WordPress site!**
 
-This plugin serves as a foundational template for WordPress block development, uniquely combining different block types (dynamic, static, and interactive) into a single, efficient plugin structure.
+Eight Bit Blocks transforms your WordPress site into a retro gaming destination. Start with the addictive Falling Blocks game (think Tetris) and watch as we add more classic arcade games over time. Perfect for blogs, gaming sites, or anywhere you want to add some fun interactive content.
+
+✨ **What's Included:**
+- 🧩 **Falling Blocks Game** - The classic puzzle game with authentic 8-bit graphics
+- 🎵 **Retro Sound Effects** - Chiptune audio that takes you back to the arcade
+- 📱 **Mobile Support** - Optional on-screen controls for touch devices
+- ⚡ **Easy to Use** - Just add the block and start playing
 
 ## Table of Contents
 
--   [Core Features & Architecture](#core-features--architecture)
-    -   [Block Architecture](#block-architecture)
-        -   [Unified Block Management](#unified-block-management)
-        -   [Efficient Asset Loading](#efficient-asset-loading)
-    -   [Build System](#build-system)
-        -   [Asset Management](#asset-management)
-    -   [Technical Implementation](#technical-implementation)
-    -   [Development Environment](#development-environment)
--   [Prerequisites](#prerequisites)
--   [Getting Setup](#getting-setup)
--   [Local WordPress Environment](#local-wordpress-environment)
-    -   [Local Site Info](#local-site-info)
-    -   [Troubleshooting](#troubleshooting)
--   [Development Commands](#development-commands)
--   [Coding Standards](#coding-standards)
--   [Project Structure](#project-structure)
+-   [How to Play](#how-to-play)
+-   [Game Features](#game-features)
+-   [Installation](#installation)
+-   [Usage](#usage)
+-   [Coming Soon](#coming-soon)
 
-## Core Features & Architecture
+## How to Play
 
-### Block Architecture
+### Falling Blocks Game
 
-#### Unified Block Management
+**The Classic Puzzle Game** - Clear lines by fitting falling blocks together!
 
-The plugin provides a structured approach to managing multiple block types:
+#### Controls
+- **Arrow Keys**: Move and rotate pieces
+  - `←` `→` Move left/right
+  - `↓` Soft drop (faster fall)
+  - `↑` Rotate piece
+- **Spacebar**: Hard drop (instant drop)
+- **R**: Restart game
 
--   Static Blocks: Traditional Gutenberg blocks rendered entirely in JavaScript
--   Dynamic Blocks: Server-side rendered blocks using PHP for dynamic content
--   Interactive Blocks: Client-side interactive blocks with JavaScript functionality
+#### Mobile Controls
+Enable on-screen buttons in the block settings for touch-friendly gameplay on mobile devices. Note: The game is primarily designed for keyboard controls, but mobile users can use the optional touch buttons.
 
-#### Efficient Asset Loading
+## Game Features
 
-Each block operates as an independent unit, similar to single-block plugins, with:
+### 🎮 Authentic 8-Bit Experience
+- **Pixel-Perfect Graphics** - Crisp, retro visuals that look like classic arcade games
+- **Classic Colors** - Bright, saturated colors that pop off the screen
+- **3D Block Effects** - Highlighted edges and shadows for that authentic feel
 
--   Isolated asset loading - scripts and styles load only when blocks are used
--   Separate frontend and editor bundles to optimize performance
--   Smart asset versioning through WordPress's build process (the asset.php files automatically track dependencies and versions based on content changes)
+### 🎵 Retro Sound Effects
+- **8-Bit Audio** - Generated chiptune sounds for every action
+- **Progressive Audio** - Special sounds for multiple line clears
+- **Game Over Sound** - Dramatic ending audio
 
-### Build System
+### 🏆 Gameplay Features
+- **7 Classic Pieces** - All the classic tetromino shapes
+- **Progressive Difficulty** - Speed increases as you level up
+- **Score System** - Points for line clears and level progression
+- **Next Piece Preview** - See what's coming next
+- **Level Progression** - Every 10 lines cleared increases the challenge
 
-#### Asset Management
+## Installation
 
-The plugin uses WordPress's modern build system with some notable features:
+1. **Download** the plugin files
+2. **Upload** to your WordPress `/wp-content/plugins/` directory
+3. **Activate** the plugin through the 'Plugins' menu in WordPress
+4. **Start Playing** - Add the "Falling Blocks Game" block to any post or page!
 
--   Automatic version hashing through `.asset.php` files
--   The version numbers in `Enqueues.php` are dynamically generated during build, preventing cache issues and ensuring users always get the latest block versions
--   Dependencies are automatically tracked and included in the build process
+## Usage
 
-The build process supports loading an additional script into the block editor for:
+### Adding a Game to Your Site
 
--   Block variations and modifications
--   Custom style variations
--   Custom block categories
--   Other block related functionality
+1. **Edit** any post or page
+2. **Click** the "+" button to add a block
+3. **Search** for "Falling Blocks Game"
+4. **Add** the block to your content
+5. **Customize** the game size and settings in the block panel
+6. **Publish** and enjoy!
 
-### Technical Implementation
+### Customization Options
 
-The plugin demonstrates modern WordPress development practices:
+- **Game Size**: Adjust width and height to fit your design
+- **Control Buttons**: Show/hide on-screen controls for mobile users
+- **Alignment**: Choose how the game aligns on your page
 
--   Proper namespacing and class structure
--   Clean separation of concerns between editor and frontend code
--   WordPress coding standards compliance
--   Development tooling for code quality (ESLint, PHP_CodeSniffer, Prettier)
+## Coming Soon
 
-### Development Environment
+More classic arcade games to come! We're working on:
 
-The plugin includes a complete development environment with:
-
--   Docker-based local WordPress setup through `wp-env`
--   Hot reloading for development
--   Automated build processes for production
--   Comprehensive linting and formatting tools
-
-This structure provides a robust foundation for building complex block-based solutions while maintaining clean code organization and optimal performance.
+- 🐍 **Snake** - The classic snake game
+- 👾 **Space Invaders** - Retro arcade shooter  
+- 👻 **Pac-Man** - Maze navigation game
+- 🏓 **Breakout** - Brick-breaking paddle game
 
 ---
 
-## Prerequisites
-
-Before you begin, ensure you have the following installed:
-
--   Node.js (v16 or higher)
--   Docker (if you intend to use `wp-env`)
--   Composer
--   Git
-
-## Getting Setup
-
-This plugin can be cloned into the plugins folder of an existing local WordPress installation, or cloned to any other location if you intend to use `wp-env` for local development.
-
-```
-git clone https://github.com/troychaplin/multi-block-starter.git
-cd multi-block-starter
-npm run setup
-```
-
-## Local WordPress Environment
-
-This project includes [@wordpress/env](https://developer.wordpress.org/block-editor/reference-guides/packages/packages-env/) as an optional local development environment. You can run the following to start and stop the Docker container:
-
--   `npm run wp-env start`
--   `npm run wp-env stop`
-
-### Local Site Info
-
--   Site: http://localhost:8888
--   Admin: http://localhost:8888/wp-admin
--   Login: `admin`
--   Password: `password`
-
-### Troubleshooting
-
-If wp-env issues occur try the following:
-
--   `npm run wp-env stop`
--   `npm run wp-env clean`
--   `npm run wp-env start`
-
-## Development Commands
-
--   `npm start` - Start development mode with hot reloading
--   `npm run build` - Build production assets
--   `npm run lint:js` - Lint JavaScript files
--   `npm run lint:css` - Lint CSS files
--   `npm run format` - Format code using WordPress standards
-
-## Coding Standards
-
-This project follows WordPress coding standards using:
-
--   PHP_CodeSniffer with WordPress Coding Standards
--   ESLint with WordPress configuration
--   Prettier for code formatting
-
-Required VS Code extensions:
-
--   PHP CodeSniffer
--   ESLint
--   Prettier
-
-### Troubleshooting
-
-For PHP_CodeSniffer issues:
-
-```
-composer dump-autoload
-```
-
-## Project Structure
-
-```
-wp-multi-block-starter/
-├── build/                  # Compiled files
-├── src/                    # Source files
-│   └── blocks/             # Block components
-│       └── dynamic/        # Dynamic blocks
-│       └── interactive/    # Interactive blocks
-│       └── static/         # Static blocks
-├── Functions/              # PHP classes
-├── vendor/                 # Composer dependencies
-├── node_modules/           # Node dependencies
-├── .eslintrc.json          # ESLint configuration
-├── .wp-env.json            # WordPress environment config
-├── composer.json           # PHP dependencies
-├── package.json            # Node dependencies
-└── README.md               # This file
-```
+**Ready to add some retro fun to your WordPress site?** Install Eight Bit Blocks today and start gaming! 🎮

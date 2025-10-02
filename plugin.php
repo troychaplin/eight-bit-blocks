@@ -23,7 +23,7 @@ if ( ! class_exists( Eight_Bit_Blocks\Plugin_Paths::class ) && file_exists( __DI
 }
 
 if ( ! class_exists( Eight_Bit_Blocks\Plugin_Paths::class ) ) {
-	wp_trigger_error( 'Multi Block Starter Plugin: Composer autoload file not found. Please run `composer install`.', E_USER_ERROR );
+	wp_trigger_error( 'Eight Bit Blocks Plugin: Composer autoload file not found. Please run `composer install`.', E_USER_ERROR );
 	return;
 }
 
