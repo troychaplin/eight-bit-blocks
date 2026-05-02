@@ -99,7 +99,7 @@ class FallingBlocksGame {
         try {
             this.audioContext = new (window.AudioContext || window.webkitAudioContext)();
         } catch (e) {
-            console.log('Audio context not supported');
+            console.l('Audio context not supported');
         }
     }
     

@@ -9,30 +9,14 @@
 	"icon": "games",
 	"description": "A fully functional falling blocks game block",
 	"example": {
-		"attributes": {
-			"gameWidth": 300,
-			"gameHeight": 600
-		}
+		"attributes": {}
 	},
-	"attributes": {
-		"gameWidth": {
-			"type": "number",
-			"default": 300
-		},
-		"gameHeight": {
-			"type": "number",
-			"default": 600
-		},
-		"showControls": {
-			"type": "boolean",
-			"default": false
-		}
-	},
+	"attributes": {},
 	"supports": {
 		"html": false,
 		"align": ["wide", "left", "center", "right"]
 	},
-	"textdomain": "falling-blocks-block-wp",
+	"textdomain": "eight-bit-blocks",
 	"editorScript": "file:./index.js",
 	"editorStyle": "file:./index.css",
 	"style": "file:./style-index.css",
